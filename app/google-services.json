@@ -1,0 +1,115 @@
+{
+  "project_info": {
+    "project_number": "267918058138",
+    "firebase_url": "https://minukututorial.firebaseio.com",
+    "project_id": "minukututorial",
+    "storage_bucket": "minukututorial.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267918058138:android:1f41e7742998b8f4",
+        "android_client_info": {
+          "package_name": "demo.minukututorial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267918058138-vlro0b1s01ujnia8maf667gpc0ieoj8v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "demo.minukututorial",
+            "certificate_hash": "192ef9871df9a12fec6388323dd12ca4356cb53f"
+          }
+        },
+        {
+          "client_id": "267918058138-iaf4q72la0rlu2hr071se6213o2q1vli.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "demo.minukututorial",
+            "certificate_hash": "ca0d46d4f045194f5951df4bb358ffdaa6a62965"
+          }
+        },
+        {
+          "client_id": "267918058138-hidqldr9fphlp06ecckdjqh8p6g87rk4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "demo.minukututorial",
+            "certificate_hash": "f210d62e0d0d5cb71151ba8d7151976ced466fee"
+          }
+        },
+        {
+          "client_id": "267918058138-nc1vob3436a5j4s6sshpbrl52botr0bq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAe3GlTGbgUdKL_Wq0KFcItaO0aZ3dQI0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267918058138-nc1vob3436a5j4s6sshpbrl52botr0bq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267918058138:android:9572cb2c8116014b",
+        "android_client_info": {
+          "package_name": "edu.umich.si.inteco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267918058138-q28pqa7m048fg6vfld2jtghqo0v180o8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.umich.si.inteco",
+            "certificate_hash": "ca0d46d4f045194f5951df4bb358ffdaa6a62965"
+          }
+        },
+        {
+          "client_id": "267918058138-nc1vob3436a5j4s6sshpbrl52botr0bq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAe3GlTGbgUdKL_Wq0KFcItaO0aZ3dQI0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267918058138-nc1vob3436a5j4s6sshpbrl52botr0bq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
