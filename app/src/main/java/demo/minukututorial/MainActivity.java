@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (UserPreferences.getInstance().getPreference("FIREBASE_URL") == null) {
+        if (!Constants.getInstance().hasFirebaseUrlBeenSet()) {
             Log.d(TAG, "Updating firebase url.");
             Constants.getInstance().setFirebaseUrl("https://minukututorial.firebaseio.com");
         }
