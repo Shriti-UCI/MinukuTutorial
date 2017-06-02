@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.util.List;
-
 import edu.umich.si.inteco.minuku.config.Constants;
 import edu.umich.si.inteco.minuku.config.UserPreferences;
 import edu.umich.si.inteco.minuku.dao.LocationDataRecordDAO;
@@ -24,17 +22,17 @@ public class MainActivity extends AppCompatActivity {
     LocationDataRecordDAO mDAO;
     TextView latitude;
     TextView longitude;
-    List<LocationDataRecord> currentLocationList;
     LocationDataRecord currentLocation;
     public static final String TAG = "MainActivity";
 
     private void initialize() {
         Log.d(TAG, "Initializing inside main activity.");
         MinukuDAOManager daoManager = MinukuDAOManager.getInstance();
-        //For location
+        //For location register the DAO so that we can start pushing location data to firebase
         LocationDataRecordDAO locationDataRecordDAO = new LocationDataRecordDAO();
         daoManager.registerDaoFor(LocationDataRecord.class, locationDataRecordDAO);
 
+        //initialize the stream generator so that it gets registered in the system
         LocationStreamGenerator locationStreamGenerator =
                 new LocationStreamGenerator(getApplicationContext());
     }
@@ -76,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
         latitude = (TextView) findViewById(R.id.current_latitude);
         longitude = (TextView) findViewById(R.id.current_longitude);
 
-        mDAO = MinukuDAOManager.getInstance().getDaoFor(LocationDataRecord.class);
-
         try {
             Log.d(TAG, "Trying to get current location.");
             currentLocation =
@@ -92,14 +88,20 @@ public class MainActivity extends AppCompatActivity {
             longitude.setText(String.valueOf(currentLocation.getLongitude()));
         }
         else {
+            Log.d(TAG, "Current location is null.");
             latitude.setText("unknown");
             longitude.setText("unknown");
         }
     }
 
+    /*Location stream generator creates an event when location changes
+     *this is a handler for that event
+     *it updates the location text in the activity layout, that is when location changes
+     *it also creates a state change event for a LocationChangeSituation to be triggered
+     */
     @org.greenrobot.eventbus.Subscribe
     public void onLocationDataChangeEvent(LocationDataRecord d) {
-        Log.d(TAG, "Got new location. Upating");
+        Log.d(TAG, "Got new location. Updating UI");
         latitude.setText(String.valueOf(d.getLatitude()));
         longitude.setText(String.valueOf(d.getLongitude()));
     }

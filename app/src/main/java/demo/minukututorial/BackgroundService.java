@@ -13,6 +13,9 @@ import edu.umich.si.inteco.minuku.manager.MinukuStreamManager;
 
 /**
  * Created by shriti on 5/26/17.
+ * A service that runs continuously by waking itself up using the Alarm
+ * It keeps updating the streams in the system. That is how we get new data.
+ * More on android service: https://developer.android.com/guide/components/services.html
  */
 
 public class BackgroundService extends Service {
