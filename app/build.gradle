@@ -47,7 +47,7 @@ dependencies {
     /* Firebase SDK */
     compile 'com.firebase:firebase-client-android:2.4.0'
     // Minuku specific dependencies.UCI:minukuextended:a92a7604b7
-    compile 'com.github.Shriti-UCI:minukuextended:-SNAPSHOT'
+    compile 'com.github.Shriti-UCI:minukuextended:afe6c07272'
     compile 'com.github.Shriti-UCI:minukucore:-SNAPSHOT'
 
     /*compile 'com.google.android.gms:play-services-maps:8.3.0'*/

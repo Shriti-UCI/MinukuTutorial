@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
-import org.greenrobot.eventbus.EventBus;
-
 import edu.umich.si.inteco.minuku.config.Constants;
 import edu.umich.si.inteco.minuku.config.UserPreferences;
 import edu.umich.si.inteco.minuku.dao.LocationDataRecordDAO;
@@ -19,7 +17,6 @@ import edu.umich.si.inteco.minukucore.exception.StreamNotFoundException;
 
 public class MainActivity extends AppCompatActivity {
 
-    LocationDataRecordDAO mDAO;
     TextView latitude;
     TextView longitude;
     LocationDataRecord currentLocation;
@@ -63,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "MainActivity onCreate called..");
         setContentView(R.layout.activity_main);
 
-        EventBus.getDefault().register(this);
-
         initialize();
         Log.d(TAG, "MainActivity initalized.");
         startService(new Intent(getBaseContext(), BackgroundService.class));
@@ -74,6 +69,17 @@ public class MainActivity extends AppCompatActivity {
         latitude = (TextView) findViewById(R.id.current_latitude);
         longitude = (TextView) findViewById(R.id.current_longitude);
 
+        refreshLocation();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "activity resuming now");
+        refreshLocation();
+    }
+
+    private void refreshLocation(){
         try {
             Log.d(TAG, "Trying to get current location.");
             currentLocation =
@@ -92,17 +98,5 @@ public class MainActivity extends AppCompatActivity {
             latitude.setText("unknown");
             longitude.setText("unknown");
         }
-    }
-
-    /*Location stream generator creates an event when location changes
-     *this is a handler for that event
-     *it updates the location text in the activity layout, that is when location changes
-     *it also creates a state change event for a LocationChangeSituation to be triggered
-     */
-    @org.greenrobot.eventbus.Subscribe
-    public void onLocationDataChangeEvent(LocationDataRecord d) {
-        Log.d(TAG, "Got new location. Updating UI");
-        latitude.setText(String.valueOf(d.getLatitude()));
-        longitude.setText(String.valueOf(d.getLongitude()));
     }
 }

@@ -1,7 +1,6 @@
 package demo.minukututorial;
 
 import android.app.Application;
-import android.content.Context;
 import android.util.Log;
 
 import com.bugfender.sdk.Bugfender;
@@ -21,16 +20,6 @@ import edu.umich.si.inteco.minuku.config.UserPreferences;
  */
 
 public class MinukuTutorialApp extends Application {
-    private static MinukuTutorialApp instance;
-    private static Context mContext;
-
-    public static MinukuTutorialApp getInstance() {
-        return instance;
-    }
-
-    public static Context getContext() {
-        return mContext;
-    }
 
     @Override
     public void onCreate() {
@@ -50,7 +39,6 @@ public class MinukuTutorialApp extends Application {
         //Firebase configurations
         //https://www.firebase.com/docs/java-api/javadoc/com/firebase/client/Config.html#setPersistenceCacheSizeBytes-long-
         Config mConfig = new Config();
-        mConfig.setPersistenceEnabled(true);
         long cacheSizeOfHundredMB = 100 * 1024 * 1024;
         mConfig.setPersistenceCacheSizeBytes(cacheSizeOfHundredMB);
         mConfig.setPersistenceEnabled(true);
